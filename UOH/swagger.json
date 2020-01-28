@@ -1,0 +1,51 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "UOH",
+    "version" : "1.0.0",
+    "description" : "UOH"
+  },
+  "paths" : {
+    "/REQUEST" : {
+      "post" : {
+        "operationId" : "postREQUEST",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a REQUEST",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "type" : "string"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/uoh/v1",
+  "definitions" : {
+    "REQUEST" : {
+      "type" : "object",
+      "properties" : {
+        "NAME" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RESPONSE" : {
+      "type" : "object",
+      "properties" : {
+        "LENGTH" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}
