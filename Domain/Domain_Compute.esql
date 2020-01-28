@@ -1,14 +1,12 @@
 
 
-CREATE COMPUTE MODULE Domain_Compute
+CREATE COMPUTE MODULE Domain_compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
-		CALL CopyMessageHeaders();
-		CALL CopyEntireMessage();
-		
+		-- CALL CopyMessageHeaders();
+	         CALL CopyEntireMessage();
 		RETURN TRUE;
 	END;
-
 	CREATE PROCEDURE CopyMessageHeaders() BEGIN
 		DECLARE I INTEGER 1;
 		DECLARE J INTEGER;
