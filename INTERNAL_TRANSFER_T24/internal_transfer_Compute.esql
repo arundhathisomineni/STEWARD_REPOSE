@@ -1,0 +1,121 @@
+
+
+CREATE COMPUTE MODULE internal_transfer_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		    CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+--	DECLARE firstNS NAMESPACE 'channel/192.168.100.44:1542';
+--    DECLARE secondNS NAMESPACE 'Sun Jan 12 17:06:55 CAT 2020.544';
+--   DECLARE thirdNS NAMESPACE '1669ms';
+--  -- creating namespace for the root/person tag as empty prefix
+--  SET OutputRoot.XMLNSC.firstNS:log.(XMLNSC.NamespaceDecl)realm=firstNS;
+--  -- creating namespace with the prefix to the root/person tag
+--   SET OutputRoot.XMLNSC.firstNS:log.(XMLNSC.NamespaceDecl)at=secondNS;
+--   -- SET OutputRoot.XMLNSC.(XMLNSC.DoubleNamespaceDecl)xmlns:b=firstNS;
+--   SET OutputRoot.XMLNSC.firstNS:log.(XMLNSC.NamespaceDecl)lofespan=thirdNS;
+--      
+--   CREATE LASTCHILD OF OutputRoot.XMLNSC.log NAME 'receive';
+--CREATE LASTCHILD OF OutputRoot.XMLNSC.log.send NAME 'isomsg' ;
+--DECLARE Inref REFERENCE TO InputRoot.XMLNSC.log.receive.isomsg;
+--DECLARE OutRef REFERENCE TO OutputRoot.XMLNSC.log.send.isomsg;
+--CREATE LASTCHILD OF Inref TYPE XMLNSC.Attribute NAME 'direction' VALUE 'outgoing';   
+   DECLARE dateDetails DATE CURRENT_TIMESTAMP;
+		DECLARE space1 CHARACTER 'channel/192.168.100.44:1542';
+		DECLARE space2 NAMESPACE dateDetails;
+		DECLARE space3 NAMESPACE '2ms';
+   
+   SET OutputRoot.XMLNSC.log.(XMLNSC.Attribute)realmn = space1;
+		SET OutputRoot.XMLNSC.log.(XMLNSC.NamespaceDecl)at = space2;
+		SET OutputRoot.XMLNSC.log.(XMLNSC.NamespaceDecl)lifespan = space3;
+		CREATE LASTCHILD OF OutputRoot.XMLNSC.log NAME 'send';
+		CREATE LASTCHILD OF OutputRoot.XMLNSC.log.send NAME 'isomsg' ;
+			DECLARE ref REFERENCE TO OutputRoot.XMLNSC.log.send.isomsg;
+		CREATE LASTCHILD OF ref TYPE XMLNSC.Attribute NAME 'direction' VALUE 'incoming';
+		DECLARE inReq REFERENCE TO InputRoot.XMLNSC.log.receive.isomsg;
+		
+		DECLARE id54 CHARACTER '2001932D0027022546892002932C025882476070';
+		SET ref.field[1].(XMLNSC.Attribute)id = '0';
+		SET ref.field[1].(XMLNSC.Attribute)value = inReq.field[1].(XMLNSC.Attribute)value;
+		SET ref.field[2].(XMLNSC.Attribute)id = '3';
+		SET ref.field[2].(XMLNSC.Attribute)value = inReq.field[2].(XMLNSC.Attribute)value; 
+		SET ref.field[3].(XMLNSC.Attribute)id = '4';
+		SET ref.field[3].(XMLNSC.Attribute)value = inReq.field[3].(XMLNSC.Attribute)value; 
+		SET ref.field[4].(XMLNSC.Attribute)id = '7';
+		SET ref.field[4].(XMLNSC.Attribute)value = inReq.field[4].(XMLNSC.Attribute)value; 
+		SET ref.field[5].(XMLNSC.Attribute)id = '11';
+		SET ref.field[5].(XMLNSC.Attribute)value = inReq.field[5].(XMLNSC.Attribute)value; 
+		SET ref.field[6].(XMLNSC.Attribute)id = '12';
+		SET ref.field[6].(XMLNSC.Attribute)value = inReq.field[6].(XMLNSC.Attribute)value; 
+		SET ref.field[7].(XMLNSC.Attribute)id = '13';
+		SET ref.field[7].(XMLNSC.Attribute)value = inReq.field[7].(XMLNSC.Attribute)value; 
+		SET ref.field[8].(XMLNSC.Attribute)id = '15';
+		SET ref.field[8].(XMLNSC.Attribute)value = inReq.field[8].(XMLNSC.Attribute)value; 
+		SET ref.field[9].(XMLNSC.Attribute)id = '18';
+		SET ref.field[9].(XMLNSC.Attribute)value = inReq.field[9].(XMLNSC.Attribute)value; 
+		SET ref.field[10].(XMLNSC.Attribute)id = '22';
+		SET ref.field[10].(XMLNSC.Attribute)value = inReq.field[10].(XMLNSC.Attribute)value; 
+		SET ref.field[11].(XMLNSC.Attribute)id = '25';
+		SET ref.field[11].(XMLNSC.Attribute)value = inReq.field[11].(XMLNSC.Attribute)value; 
+		SET ref.field[12].(XMLNSC.Attribute)id = '28';
+		SET ref.field[12].(XMLNSC.Attribute)value = inReq.field[12].(XMLNSC.Attribute)value; 
+		SET ref.field[13].(XMLNSC.Attribute)id = '30';
+		SET ref.field[13].(XMLNSC.Attribute)value = inReq.field[13].(XMLNSC.Attribute)value; 
+		SET ref.field[14].(XMLNSC.Attribute)id = '32';
+		SET ref.field[14].(XMLNSC.Attribute)value = inReq.field[14].(XMLNSC.Attribute)value; 
+		SET ref.field[15].(XMLNSC.Attribute)id = '33';
+		SET ref.field[15].(XMLNSC.Attribute)value = inReq.field[15].(XMLNSC.Attribute)value; 
+		SET ref.field[16].(XMLNSC.Attribute)id = '37';
+		SET ref.field[16].(XMLNSC.Attribute)value = inReq.field[16].(XMLNSC.Attribute)value; 
+		SET ref.field[17].(XMLNSC.Attribute)id = '41';
+		SET ref.field[17].(XMLNSC.Attribute)value = inReq.field[17].(XMLNSC.Attribute)value; 
+		SET ref.field[18].(XMLNSC.Attribute)id = '42';
+		SET ref.field[18].(XMLNSC.Attribute)value = inReq.field[18].(XMLNSC.Attribute)value; 
+		SET ref.field[19].(XMLNSC.Attribute)id = '43';
+		SET ref.field[19].(XMLNSC.Attribute)value = inReq.field[19].(XMLNSC.Attribute)value; 
+		SET ref.field[20].(XMLNSC.Attribute)id = '49';
+		SET ref.field[20].(XMLNSC.Attribute)value = inReq.field[20].(XMLNSC.Attribute)value; 
+		SET ref.field[21].(XMLNSC.Attribute)id = '54';
+		SET ref.field[21].(XMLNSC.Attribute)value = id54;   
+		SET ref.field[22].(XMLNSC.Attribute)id = '56';
+		SET ref.field[22].(XMLNSC.Attribute)value = inReq.field[22].(XMLNSC.Attribute)value; 
+		SET ref.field[23].(XMLNSC.Attribute)id = '59';
+		SET ref.field[23].(XMLNSC.Attribute)value = inReq.field[23].(XMLNSC.Attribute)value; 
+		SET ref.field[24].(XMLNSC.Attribute)id = '100';
+		SET ref.field[24].(XMLNSC.Attribute)value = inReq.field[24].(XMLNSC.Attribute)value; 
+		SET ref.field[25].(XMLNSC.Attribute)id = '102';
+		SET ref.field[25].(XMLNSC.Attribute)value = inReq.field[25].(XMLNSC.Attribute)value; 
+		SET ref.field[26].(XMLNSC.Attribute)id = '103';
+		SET ref.field[26].(XMLNSC.Attribute)value = inReq.field[26].(XMLNSC.Attribute)value;
+		
+		CREATE LASTCHILD OF OutputRoot.XMLNSC.log.send.isomsg NAME 'isomsg';
+		SET OutputRoot.XMLNSC.log.send.isomsg.isomsg.(XMLNSC.Attribute)id = '127';
+		--CREATE LASTCHILD OF OutputRoot.XMLNSC.log.receive.isomsg.isomsg NAME 'field';
+   		DECLARE ref1 REFERENCE TO OutputRoot.XMLNSC.log.send.isomsg.isomsg;
+--        CREATE LASTCHILD OF ref1.isomsg TYPE XMLNSC.Attribute NAME 'id' VALUE '127';
+        SET ref1.field[1].(XMLNSC.Attribute)id = '2';
+		SET ref1.field[1].(XMLNSC.Attribute)value = inReq.field[1].(XMLNSC.Attribute)value; 
+		SET ref1.field[2].(XMLNSC.Attribute)id = '3';
+		SET ref1.field[2].(XMLNSC.Attribute)value = inReq.field[2].(XMLNSC.Attribute)value; 
+		SET ref1.field[3].(XMLNSC.Attribute)id = '20';
+		SET ref1.field[3].(XMLNSC.Attribute)value = inReq.field[3].(XMLNSC.Attribute)value; 
+		SET ref1.field[4].(XMLNSC.Attribute)id = '33';
+		SET ref1.field[4].(XMLNSC.Attribute)value = inReq.field[4].(XMLNSC.Attribute)value; 
+   
+	END;
+END MODULE;
+  
